@@ -2,37 +2,16 @@ import React, { Component } from 'react';
 import './App.scss';
 import Routes from './routes/Routes';
 import Star from './components/Star';
-
-import { database } from './firebase/init';
+import LoginContainer from './containers/LoginContainer';
 
 class App extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
 
     }
-  }
 
-  getData = () => {
-    try {
-      database.ref("list").orderByChild("year").on("value", snapshot => {
-        console.log(snapshot.val())
-        if (snapshot.val() != null) {
-          this.setState({
-            list: snapshot.val()
-          });
-        } else {
-          console.log('데이터가 없습니다.')
-        }
-      });
-    } catch (err) {
-
-    }
-  }
-
-  componentWillMount(){
-    this.getData();
   }
 
   render() {
@@ -40,6 +19,7 @@ class App extends Component {
     return (
       <div className="App">
         <Star length={100} />
+        <LoginContainer/>
         <Routes />
       </div>
     );
