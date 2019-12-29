@@ -2,31 +2,32 @@ import * as types from '../actions/ActionTypes';
 import { auth, provider } from '../firebase/init';
 
 const initialState = {
+
     logged: false,
-    user: ''
+    user: []
+
 }
 
 const login = (state = initialState, action) => {
     switch (action.type){
         case types.LOGIN:
-            auth().signInWithPopup(provider).then((result) => {
-                return {
-                    logged: true,
-                    user: result
-                }
-            }).catch((err) => {
-                console.log(err);
-            })
+            return {
+                logged: true,
+                user:  auth().signInWithRedirect(provider).then((result) => {
+                    return result;
+                }).catch((err) => {
+                    console.log(err);
+                    return state;
+                })
+            }
             
         case types.LOGOUT:
             auth().signOut();
-            return {
-                logged: false,
-                user: 'nn'
-            }
-
+            return state;
+            
         default:
             return state;
+
     }
 }
 
