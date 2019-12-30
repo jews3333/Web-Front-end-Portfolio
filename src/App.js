@@ -4,18 +4,18 @@ import Routes from './routes/Routes';
 import Star from './components/Star';
 import LoginContainer from './containers/LoginContainer';
 
+import * as actions from './actions';
+import { connect } from 'react-redux';
+
 class App extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    }
-
+  componentDidMount(){
+    setTimeout(() => {
+      this.props.onAuthState();
+    },5000)
   }
 
   render() {
-
     return (
       <div className="App">
         <Star length={100} />
@@ -26,4 +26,16 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  logged: state.logged,
+  user: state.user
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onAuthState: () => dispatch(actions.authState())
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
