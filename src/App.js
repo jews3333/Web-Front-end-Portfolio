@@ -12,10 +12,11 @@ class App extends Component {
   componentDidMount(){
     setTimeout(() => {
       this.props.onAuthState();
-    },5000)
+    }, 1500);
   }
 
   render() {
+    console.log('render');
     return (
       <div className="App">
         <Star length={100} />

@@ -26,3 +26,10 @@ a {
 ul, li, ol {
     list-style: none;
 }
+
+button {
+    font-size: inherit;
+    background:none;
+    border:0;
+    cursor: pointer;
+}

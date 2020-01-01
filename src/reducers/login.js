@@ -28,7 +28,10 @@ const login = (state = initialState, action) => {
             
         case types.LOGOUT:
             auth().signOut();
-            return state;
+            return {
+                logged: false,
+                user: []
+            };
             
         default:
             return state;

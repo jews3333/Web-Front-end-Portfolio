@@ -22,7 +22,7 @@
              $random_scale: random(10000) * 0.0001;
              $random-yoyo-time: random_range(30000, 80000) / 100000;
              $fall-duration: random_range(10, 30) * 1s;
-             $fall-delay: random(30) * -1s;
+             $fall-delay: random(10) * -1s;
      
              &:nth-of-type(#{$i}){
                  opacity: random(10000) * 0.0001;
