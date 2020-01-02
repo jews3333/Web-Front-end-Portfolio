@@ -9,14 +9,13 @@ import { connect } from 'react-redux';
 
 class App extends Component {
 
-  componentDidMount(){
+  componentDidMount(){ //임시 로그인 상태관리 => 추후 수정예정
     setTimeout(() => {
       this.props.onAuthState();
-    }, 1500);
+    }, 5000);
   }
 
   render() {
-    console.log('render');
     return (
       <div className="App">
         <Star length={100} />

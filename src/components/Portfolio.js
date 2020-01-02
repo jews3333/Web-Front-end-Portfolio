@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Portfolio = () => {
-    return (
-        <div>
-            Portfolio
-        </div>
-    );
+class Portfolio extends Component {
+    render() {
+        const { list, onPortfolio } = this.props;
+        return (
+            <div>
+                <button onClick={onPortfolio}>click</button>
+                {list ? list : null}
+            </div>
+        )
+    }
 }
 
 export default Portfolio;
