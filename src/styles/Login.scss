@@ -9,7 +9,9 @@
         border-radius: 50%;
         text-indent: -9999px;
         font-size: 0;
-        background: #fff;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
         overflow: hidden;
     }
 }

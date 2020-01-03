@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
 class Portfolio extends Component {
-    render() {
-        const { list, onPortfolio } = this.props;
+    
+    render(){
+        const { list } = this.props;
         return (
             <div>
-                <button onClick={onPortfolio}>click</button>
-                {list ? list : null}
-            </div>
+            {list ? list.map((list, index) => <div id={list.id} key={index}>{list.title}</div>) : null}
+        </div>
         )
     }
 }
