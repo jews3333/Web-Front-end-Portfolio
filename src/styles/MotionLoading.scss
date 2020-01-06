@@ -23,7 +23,7 @@
             height: 20px;
             opacity: 0.5;
             left:0;
-            animation: motion_cloud1 0.2s infinite ease-in-out;
+            animation: motion_cloud1 0.5s infinite ease-in-out;
         }
 
         &:nth-of-type(2) {
@@ -31,7 +31,7 @@
             height: 40px;
             opacity: 0.8;
             left:50%;
-            animation: motion_cloud2 0.5s infinite ease-in-out;
+            animation: motion_cloud2 1s infinite ease-in-out;
         }
 
         &:nth-of-type(3) {
@@ -39,17 +39,18 @@
             height: 30px;
             opacity: 0.3;
             left:100%;
-            animation: motion_cloud3 0.3s infinite ease-in-out;
+            animation: motion_cloud3 0.5s infinite ease-in-out;
         }
     }
 
     &[data-loaded=true]{
-        animation: motion_rocket 2s forwards ease-in;
+        animation: motion_rocket 1s forwards ease-in-out;
     }
 
     @keyframes motion_rocket {
         to {
             top:-50px;
+            opacity: 0;
         }
     }
 

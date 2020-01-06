@@ -27,7 +27,7 @@ class MotionLoading extends React.Component {
         if(loaded) {
             setTimeout(() => {
                 document.querySelector('.loading_rocket').remove();
-            }, 2000)
+            }, 1000)
         }
         
         return (
