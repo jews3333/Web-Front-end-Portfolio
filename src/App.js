@@ -4,20 +4,38 @@ import Routes from './routes/Routes';
 import Star from './components/Star';
 import LoginContainer from './containers/LoginContainer';
 
-import * as actions from './actions';
 import { connect } from 'react-redux';
-import { auth, database } from './firebase/init';
+import { getAuthState, getPortfolioList, MotionLoading } from './modules';
 
 class App extends Component {
 
-  componentDidMount(){ //임시 로그인 상태관리 => 추후 수정예정
+  // constructor(props){
+  //   super(props);
+  //   this.state = {
+  //     loaded: false
+  //   }
+  // }
+
+  //사이트 초기 데이터 호출 (필요 데이터 모두 호출)
+  componentDidMount(){
     this.props.onAuthState();
     this.props.onPortfolio();
   }
 
+  //데이터 모두 호출에 대한 로딩 및 완료
+  // componentDidUpdate(prevProps, prevState){
+  //   if(prevProps != this.props){
+  //     this.setState({
+  //       loaded: true
+  //     });
+  //   }
+  // }
+
   render() {
     return (
       <div className="App">
+        {/* <MotionLoading loaded={this.state.loaded} /> */}
+        <MotionLoading />
         <Star length={100} />
         <LoginContainer/>
         <Routes />
@@ -26,38 +44,20 @@ class App extends Component {
   }
 }
 
-const getAuthState = (dispatch) => {
-  auth().onAuthStateChanged((result) => {
-    let user = result ? result : null;
-    
-    console.log(result);
-
-    dispatch(actions.authState(user));
-  })
-}
-
-const getPortfolioList = (dispatch) => {
-  database.ref("list").on("value", snapshot => {
-      let getList = snapshot.val();
-      let portfolioList = getList ? Object.keys(getList).map(id => ({id, ...getList[id]})) : [];
-
-      console.log(portfolioList);
-
-      dispatch(actions.portfolio(portfolioList));
-  });
-}
-
+//redux에서 필요 데이터 호출
 const mapStateToProps = (state) => ({
   logged: state.loginData.logged,
   user: state.loginData.user,
   list: state.portfolioData.list
 });
 
+//redux에서 필요 해들러 호출
 const mapDispatchToProps = (dispatch) => ({
   onAuthState: () => getAuthState(dispatch),
   onPortfolio: () => getPortfolioList(dispatch)
 })
 
+//사용하기 위한 커넥트
 export default connect(
   mapStateToProps,
   mapDispatchToProps

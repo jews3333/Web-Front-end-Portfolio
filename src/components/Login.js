@@ -13,6 +13,7 @@ const Login = ({ logged, user, onLogin, onLogout }) => {
 
 Login.defaultProps = {
     logged: false,
+    user: null,
     onLogin: () => console.warn("onLogin not defined"),
     onLogout: () => console.warn("onLogout not defined")
 }
