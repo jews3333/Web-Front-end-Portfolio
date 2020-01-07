@@ -6,7 +6,7 @@ import Google from '../images/google.png';
 const Login = ({ logged, user, onLogin, onLogout }) => {
     return (
         <div className="login">
-            {!logged ? <button data-logged={logged} onClick={onLogin} style={{backgroundImage:`url(${Google})`}}>로그인</button> : <button data-logged={logged} onClick={onLogout} style={user ? {backgroundImage:`url(${user.photoURL})`} : {backgroundImage:`url(${Google})`}}>로그아웃</button>}
+            {!logged ? <button data-logged={logged} title="SignIn" onClick={onLogin} style={{backgroundImage:`url(${Google})`}}>로그인</button> : <button data-logged={logged} title="SignOut" onClick={onLogout} style={user ? {backgroundImage:`url(${user.photoURL})`} : {backgroundImage:`url(${Google})`}}>로그아웃</button>}
         </div>
     );
 }

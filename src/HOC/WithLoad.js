@@ -15,8 +15,16 @@ const WithLoad = (LoadComponent) => (
                 }
             }
 
+            componentDidMount(){
+                if(this.props.list){
+                    this.setState({
+                        loaded: true
+                    })
+                }
+            }
+
             componentDidUpdate(prevProps, prevState) {
-                if (prevProps != this.props) {
+                if (prevProps.list !== this.props.list) {
                     this.setState({
                         loaded: true
                     });

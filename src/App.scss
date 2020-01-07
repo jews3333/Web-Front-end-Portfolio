@@ -33,3 +33,10 @@ button {
     border:0;
     cursor: pointer;
 }
+
+.component {
+    width:calc(100% - 30px);
+    height:calc(100% - 100px);
+    max-width:1200px;
+    margin:50px auto;
+}

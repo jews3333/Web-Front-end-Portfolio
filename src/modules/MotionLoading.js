@@ -32,7 +32,7 @@ class MotionLoading extends React.Component {
         
         return (
             <div className="loading_rocket" data-loaded={loaded}>
-                <img src={Rocket}/>
+                <img src={Rocket} alt="LOADING..."/>
                 <span className="cloud"></span>
                 <span className="cloud"></span>
                 <span className="cloud"></span>
