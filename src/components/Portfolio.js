@@ -5,14 +5,26 @@ import SlickSlider from 'react-slick';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import '../styles/Portfolio.scss';
 
 const settings = {
-    dots: true,
+    dots: false,
     arrows: false,
     infinite: true,
-    speed: 1000,
-    slidesToShow: 1,
-    slidesToScroll: 1
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    centerMode: true,
+    centerPadding: 0,
+    responsive:[
+        {
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 1,
+                centerPadding: '100px'
+            }
+        }
+    ]
 }
 
 const Portfolio = ({ list }) => {
@@ -20,7 +32,7 @@ const Portfolio = ({ list }) => {
         <div className="component">
             <SlickSlider {...settings}>
                 {list ? list.map((list, index) => 
-                    <PortfolioList key={index} id={list.id} title={list.title} sumry={list.sumry} time={list.time} url={list.url} image={list.image} />
+                    <PortfolioList key={index} id={list.id} title={list.title} sumry={list.sumry} year={list.year} url={list.url} image={list.image} />
                 ) : null}
             </SlickSlider>
         </div>

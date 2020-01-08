@@ -1,16 +1,15 @@
 import React from 'react';
-// import { storage } from '../firebase/init';
 
-const PortfolioList = ({ id, title, sumry, time, url, image }) => {
+const PortfolioList = ({ id, title, sumry, year, url, image }) => {
 
     return (
-        <div id={id}>
-            <div>
+        <div className="portfolioList" id={id}>
+            <div className="image">
+                <img src={image} alt={title}/>
             </div>
-            <div>{title}</div>
-            <div>{sumry}</div>
-            <div>{url}</div>
-            <div>{time}</div>
+            <h3 className="title">{title}</h3>
+            <div className="year">{year}</div>
+            {url ? <div className="url"><a href={url} title="새창으로 열림" target="_blank" >홈페이지</a></div> : null}
         </div>
     )
 }

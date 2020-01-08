@@ -2,30 +2,38 @@ import { storage, database } from '../firebase/init';
 import * as actions from '../actions';
 
 export const getPortfolioList = (dispatch) => {
-    database.ref("list").on("value", snapshot => {
-        let getList = snapshot.val();
+    database.ref("list").on("value", async (snapshot) => {
+        const getList = snapshot.val();
 
-        for(let i=0; i<getList.length; i++){
-            storage.ref("portfolio").child(getList[i].image).getDownloadURL().then((url) => {
-                
-                getList[i].push("image_url",url);
-            }).catch((err) => {
-                console.log(err);
+        // for(let i=0; i<getList.length; i++){
+        //     storage.ref("portfolio").child(getList[i].image).getDownloadURL().then((url) => {
+        //         getList[i].push("image_url",url);
+        //     }).catch((err) => {
+        //         console.log(err);
+        //     });
+        // }
+
+        const promiseList = getList ? Object.keys(getList).map(async (id) => {
+            let image = null;
+            await storage.ref('portfolio').child(getList[id].image).getDownloadURL().then((url) => {
+                image = url;
             });
-        }
-
-        let portfolioList = getList ? Object.keys(getList).map(async id => 
-            await storage.ref('portfolio').child(getList[id].image).getDownloadURL().then((url) => ({
+            return {
                 id,
                 ...getList[id],
-                url
-            }))
-            // ({ id, ...getList[id] })
-        ) : [];
+                image
+            }
+        }) : [];
 
-        console.log(Promise.resolve(portfolioList[0]));
+        const portfolioList = new Array();
 
-        dispatch(actions.portfolio(portfolioList));
+        for(let i=0; i<promiseList.length; i++){
+            await Promise.resolve(promiseList[i]).then((response) => {
+                portfolioList.push(response);
+            })
+        }
+
+        await dispatch(actions.portfolio(portfolioList));
     });
 }
 

@@ -1,0 +1,58 @@
+.slick-list {
+    overflow:visible;
+
+    .slick-slide {
+        opacity:0.3;
+
+        &.slick-current {
+            opacity:1;
+        }
+    }
+}
+
+.portfolioList {
+    padding:0 20px;
+    color:#fff;
+    text-align: center;
+
+    .image {
+        position: relative;
+        max-width:400px;
+        width:100%;
+        max-height:600px;
+        overflow-y: auto;
+        margin:0 auto 10px;
+        -ms-overflow-style: none;
+        
+        &::-webkit-scrollbar {
+            display:none;
+        }
+
+        & > img {
+            width:100%;
+        }
+    }
+    .title {
+        font-size:1.2em;
+    }
+    .year {
+        font-size: 1em;
+    }
+
+    a {
+        display:inline-block;
+        margin-top:10px;
+        padding:10px 20px;
+        line-height: 1;
+        background:rgba($color: #fff, $alpha: 0.6);
+        color:#222;
+        border-radius: 20px;
+        transition: all 0.3s;;
+
+        &:hover {
+            background:#fff;
+            box-shadow: 0 0 10px rgba($color: #Fff, $alpha: 0.6);
+        }
+    }
+
+}
