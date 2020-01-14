@@ -21,7 +21,7 @@ const settings = {
             breakpoint: 768,
             settings: {
                 slidesToShow: 1,
-                centerPadding: '100px'
+                centerPadding: '80px'
             }
         }
     ]

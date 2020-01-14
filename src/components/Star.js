@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/Star.scss';
+// import '../styles/Star.scss';
 
 const Star = ({length}) => {
     const stars = [];
