@@ -1,9 +1,9 @@
 import React from 'react';
 
-const PortfolioList = ({ id, title, sumry, year, url, image }) => {
+const PortfolioList = ({ title, year, url, image }) => {
 
     return (
-        <div className="portfolioList" id={id}>
+        <div className="portfolioList">
             <div className="image">
                 <img src={image} alt={title}/>
             </div>

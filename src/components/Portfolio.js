@@ -32,7 +32,9 @@ const Portfolio = ({ list }) => {
         <div className="component">
             <SlickSlider {...settings}>
                 {list ? list.map((list, index) => 
-                    <PortfolioList key={index} id={list.id} title={list.title} sumry={list.sumry} year={list.year} url={list.url} image={list.image} />
+                    list.show ?
+                    <PortfolioList key={index} title={list.title} year={list.year} url={list.url} image={list.image} />
+                    : null
                 ) : null}
             </SlickSlider>
         </div>
