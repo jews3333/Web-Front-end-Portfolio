@@ -1,0 +1,146 @@
+#profile {
+    overflow:auto;
+
+    &::-webkit-scrollbar  {
+        display: none;;
+    }
+
+    article {
+        float:left;
+        padding:20px;
+    
+        &.full {
+            width:100%;
+        }
+    
+        @media (max-width: 768px){
+            width:100%;
+        }
+    }
+    
+    .photo {
+        &:after{
+            content:"";
+            display:inline-block;
+            width:200px;
+            height: 200px;
+            background:rgba($color: #fff, $alpha: 0.3)
+        }
+    
+        @media (max-width:768px){
+            text-align: center;
+        }
+    }
+    
+    .infomation {
+        margin-bottom: 20px;
+    
+        @media (max-width:768px){
+            text-align: center;
+        }
+    }
+    
+    .license {
+        ul {
+            &:after {
+                content:"";
+                display: block;
+                clear: both;
+            }
+            li {
+                position: relative;
+                padding:0 20px;
+                float:left;
+    
+                &:before {
+                    content:"";
+                    display:block;
+                    width:5px;
+                    height: 5px;
+                    border-radius: 50%;
+                    background:#fff;
+                    box-shadow: 0 0 5px rgba($color: #fff, $alpha: 0.6);
+                    position: absolute;
+                    top:0.6em;
+                    left:5px;
+                }
+    
+                @media (max-width:768px){
+                    display: inline-block;
+                    float: none;
+                }
+            }
+    
+           
+        }
+    
+        @media (max-width:768px){
+            text-align: center;
+        }
+    }
+    
+    .skills {
+        text-align: center;
+        span {
+            display:inline-block;
+            vertical-align: middle;
+            width: 8em;
+            height: 8em;;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            text-align:center;
+            font-size:0.8em;
+            line-height: 8em;
+            box-shadow: 0 0 5px rgba($color: #fff, $alpha: 0.6);
+            text-shadow: 0 0 5px rgba($color: #fff, $alpha: 0.6);
+            margin:10px;
+            transition: all 0.25s ease-in-out;
+    
+            &:hover {
+                box-shadow: 0 0 10px #fff;
+            }
+        }
+    }
+    
+    .education {
+        & > div {
+            margin-bottom:10px;
+            ul {
+                &:after {
+                    content:"";
+                    display:block;
+                    clear: both;
+                }
+                li {
+                    position: relative;
+                    width:33.3333%;
+                    padding:0 20px;
+                    float:left;
+    
+                    &:before {
+                        content:"";
+                        display:block;
+                        width:5px;
+                        height: 5px;
+                        border-radius: 50%;
+                        background:#fff;
+                        box-shadow: 0 0 5px rgba($color: #fff, $alpha: 0.6);
+                        position: absolute;
+                        top:0.6em;
+                        left:5px;
+                    }
+    
+                    @media (max-width:768px){
+                        display: inline-block;
+                        float: none;
+                        width: auto;
+                    }
+                }
+            }
+        }
+        @media (max-width:768px){
+            text-align: center;
+        }
+    }
+}
+

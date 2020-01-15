@@ -11,6 +11,7 @@ html {
 }
 
 body {
+    color:#fff;
     font-size:1.6rem;
     font-family:'Noto Sans KR', sans-serif;
     height:100vh;
@@ -41,20 +42,62 @@ button {
     overflow:hidden;
 }
 
+.App {
+    height:100%;
+}
+
 .component {
+    position: relative;
     width:calc(100% - 30px);
-    height:calc(100% - 100px);
+    height:calc(100% - 110px);
     max-width:1200px;
-    padding:55px 0;
+    padding:60px 0 0;
     margin:0 auto;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+
+    &:after {
+        content:"";
+        display:block;
+        clear:both;
+    }
+
+    &[data-loaded=true]{
+        
+        animation: loadedAnimation 0.5s ease-in-out forwards;
+
+        @keyframes loadedAnimation {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        &.changed {
+            animation: changedAnimation 0.5s ease-in-out forwards;
+
+            @keyframes changedAnimation {
+                from {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+                to {
+                    opacity: 0;
+                    transform: translateX(-100%);
+                }
+            }
+        }
+    }
 
 }
 
 .toast {
     position: fixed;
+    width:100%;
+    text-align:center;
     bottom: 70px;
-    left:50%;
-    transform: translateX(-50%);
     color:#fff;
-    font-size:1.2em;
+    font-size:1.1em;
+    text-shadow: 0 0 5px rgba($color: #fff, $alpha: 0.6);
 }

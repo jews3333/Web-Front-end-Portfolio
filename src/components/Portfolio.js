@@ -29,7 +29,7 @@ const settings = {
 
 const Portfolio = ({ list }) => {
     return (
-        <div className="component">
+        <section className="component" id="portfolio" data-loaded={list ? true : false}>
             <SlickSlider {...settings}>
                 {list ? list.map((list, index) => 
                     list.show ?
@@ -37,7 +37,7 @@ const Portfolio = ({ list }) => {
                     : null
                 ) : null}
             </SlickSlider>
-        </div>
+        </section>
     )
 }
 

@@ -14,7 +14,7 @@ export const toast = (message) => {
 
             span.append(str);
             span.style.opacity = 0;
-            span.style.transition = "all 0.1s ease-in-out";
+            span.style.transition = "all 0.2s ease-in-out";
             span.style.display = "inline-block";
             span.style.transform = "translateY(-10px)";
             toast.append(span);
@@ -28,14 +28,14 @@ export const toast = (message) => {
                             setTimeout(() => {
                                 document.querySelectorAll(".toast > span")[j].style.opacity = 0;
                                 document.querySelectorAll(".toast > span")[j].style.transform = "translateY(-10px)";
-                            }, (100 * j));
+                            }, (50 * j));
                         }
                         setTimeout(() => {
                             toast.remove();
-                        }, (100 * message.length-1));
+                        }, (50 * message.length-1));
                     }, 2000)
                 }
-            }, (100 * i));
+            }, (50 * i));
         }
     }
 }

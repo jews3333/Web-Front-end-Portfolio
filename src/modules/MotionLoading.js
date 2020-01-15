@@ -25,8 +25,11 @@ class MotionLoading extends React.Component {
         const { loaded } = this.props;
 
         if(loaded) {
+            let rocket = document.querySelector('.loading_rocket');
             setTimeout(() => {
-                document.querySelector('.loading_rocket').remove();
+                if(rocket){
+                    rocket.remove();
+                };
             }, 1000)
         }
         
