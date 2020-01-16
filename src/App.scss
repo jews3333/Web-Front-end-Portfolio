@@ -55,7 +55,6 @@ button {
     margin:0 auto;
     transform: translateX(100%);
     opacity: 0;
-    transition: all 0.5s ease-in-out;
 
     &:after {
         content:"";
@@ -64,18 +63,19 @@ button {
     }
 
     &[data-loaded=true]{
-        
-        animation: loadedAnimation 0.5s ease-in-out forwards;
 
-        @keyframes loadedAnimation {
-            to {
-                opacity: 1;
-                transform: translateX(0);
+        &:not(#home){
+            animation: loadedAnimation 0.5s ease-in-out forwards;
+            @keyframes loadedAnimation {
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
             }
         }
 
         &.changed {
-            animation: changedAnimation 0.5s ease-in-out forwards;
+            animation: changedAnimation 0.5s ease-in-out forwards !important;
 
             @keyframes changedAnimation {
                 from {

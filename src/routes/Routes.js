@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import { Home, Profile, Portfolio } from './index';
+import { Home, Profile, Portfolio, Context } from './index';
 import Navgation from '../components/Navgation'
 
 const Routes = () => {
@@ -8,6 +8,7 @@ const Routes = () => {
         <Router>
             <Navgation/>
             <Switch>
+                <Route path="/context" component={Context}/>
                 <Route path="/portfolio" component={Portfolio}/>
                 <Route path="/profile" component={Profile}/>
                 <Route path="/" component={Home}/> 

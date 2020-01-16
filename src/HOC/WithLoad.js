@@ -33,7 +33,7 @@ const WithLoad = (LoadComponent) => (
 
             render() {
                 return (
-                    <LoadComponent loaded={this.state.loaded} />
+                    <LoadComponent loaded={this.state.loaded} user={this.props.user} list={this.props.list} logged={this.props.logged} />
                 )
             }
 
@@ -47,4 +47,4 @@ const mapStateToProps = (state) => ({
     list: state.portfolioData.list
 });
 
-export default WithLoad
+export default WithLoad;

@@ -15,8 +15,6 @@ class Navigation extends Component { //withRouter의 props를 받기위해 class
         const path = e.target.href.split("/")[3];
 
         if(this.props.history.location.pathname !== "/"+path){
-            // document.querySelector(".component").style.opacity = 0;
-            // document.querySelector(".component").style.transform = "translateX(-100%)";
             document.querySelector(".component").classList.add("changed");
 
             setTimeout(() => {

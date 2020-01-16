@@ -23,7 +23,7 @@ class App extends Component {
     return (
       <div className="App">
         <MotionLoading />
-        <Star length={100} />
+        {/* <Star length={100} /> */}
         <LoginContainer/>
         <Routes />
       </div>

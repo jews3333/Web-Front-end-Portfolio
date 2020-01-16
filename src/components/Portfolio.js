@@ -7,6 +7,8 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '../styles/Portfolio.scss';
 
+import WithLoad from '../HOC/WithLoad';
+
 const settings = {
     dots: false,
     arrows: false,
@@ -27,9 +29,9 @@ const settings = {
     ]
 }
 
-const Portfolio = ({ list }) => {
+const Portfolio = ({ list, loaded }) => {
     return (
-        <section className="component" id="portfolio" data-loaded={list ? true : false}>
+        <section className="component" id="portfolio" data-loaded={loaded}>
             <SlickSlider {...settings}>
                 {list ? list.map((list, index) => 
                     list.show ?

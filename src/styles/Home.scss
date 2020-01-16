@@ -1,32 +1,42 @@
 #home {
-    position: absolute;
-    width:100%;
-    text-align: center;
-    top:50%;
-    left:50%;
-    transform: translate(-50%, -50%);
-    color:#fff;
-    font-size: 3em;
-    text-shadow: 0 0 5px rgba(#fff, 0.6);
+    opacity: 1;
+    transform: translateX(0);
 
-    & > span {
-        display: inline-block;
-        transform: translateY(-1em);
-        opacity: 0;
+    & > div {
+        position: absolute;
+        width:100%;
+        text-align: center;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+        color:#fff;
+        font-size: 3em;
+        text-shadow: 0 0 5px rgba(#fff, 0.6);
+
+        & > span {
+            display: inline-block;
+            transform: translateY(-1em);
+            opacity: 0;
+        }
     }
 
-    &[data-loaded=true] > span {
-        @for $i from 1 through 9 {
-            &:nth-of-type(#{$i}){
-                animation: text_show 0.5s forwards ease-in-out;
-                animation-delay: calc(#{$i} * 0.1s);
-            }
-        }
-
-        @keyframes text_show {
-            to {
-                transform: translateY(0);
-                opacity: 1;
+    &[data-loaded=true] {
+        
+        & > div {
+            & > span {
+                @for $i from 1 through 9 {
+                    &:nth-of-type(#{$i}){
+                        animation: text_show 0.5s forwards ease-in-out;
+                        animation-delay: calc(#{$i} * 0.1s);
+                    }
+                }
+        
+                @keyframes text_show {
+                    to {
+                        transform: translateY(0);
+                        opacity: 1;
+                    }
+                }
             }
         }
     }

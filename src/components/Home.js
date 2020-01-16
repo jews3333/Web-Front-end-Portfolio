@@ -5,8 +5,8 @@ import WithLoad from '../HOC/WithLoad';
 const Home = ({ loaded }) => {
 
     return (
-        <div className="component" data-loaded={loaded}>
-            <div id="home" data-loaded={loaded}>
+        <div className="component" id="home" data-loaded={loaded}>
+            <div>
                 <span>P</span>
                 <span>O</span>
                 <span>R</span>
