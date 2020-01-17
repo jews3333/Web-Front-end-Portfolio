@@ -1,0 +1,58 @@
+#contextList {
+    overflow-y: auto;
+    
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    .contextListItem {
+        border:1px solid #fff;
+        padding:30px;
+        background:rgba($color: #fff, $alpha: 0.1);
+        transition: all 0.25s ease-in-out;
+        
+        &:not(:last-of-type){
+            margin-bottom:30px;
+        }
+
+        &:hover {
+            box-shadow: 0 0 10px rgba($color: #fff, $alpha: 0.6);
+        }
+
+        .head {
+            display:table;
+            width:100%;
+        }
+
+        .body {
+            border-top:1px solid #fff;
+            margin-top:20px;
+            padding-top:20px;
+        }
+
+        .title {
+            display:table-cell;
+            font-size:1.4em;
+            line-height: 1.2;
+            vertical-align: middle;
+        }
+
+        .writer {
+            display:table-cell;
+            text-align: right;
+            width:100px;
+            vertical-align: middle;
+        }
+        
+        .date {
+            display:table-cell;
+            text-align: right;
+            width:100px;
+            vertical-align: middle;
+        }
+
+        .message {
+            border-top:1px solid #fff;
+        }
+    }
+}

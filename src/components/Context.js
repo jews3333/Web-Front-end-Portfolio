@@ -12,7 +12,8 @@ class Context extends Component {
         this.state = {
             title: "",
             email: "",
-            message: ""
+            message: "",
+            date: ""
         }
     }
 
@@ -22,6 +23,7 @@ class Context extends Component {
 
     onChangeHandler = () => {
         this.setState({
+            ...this.state,
             title: document.querySelector("#title").value,
             email: document.querySelector("#email").value,
             message: document.querySelector("#message").value
@@ -31,12 +33,16 @@ class Context extends Component {
 
     onSendHandler = () => {
         let date = new Date();
+        let yy = date.getFullYear();
+        let mm = date.getMonth() + 1;
+        let dd = date.getDate();
 
         database.ref("context/"+date.getTime()).set({
             writer: this.props.user.displayName,
             title: this.state.title,
             email: this.state.email,
-            message: this.state.message
+            message: this.state.message,
+            date: `${yy}/${mm}/${dd}`
         }).then(() => {
             toast("메세지 전송 성공!");
             document.querySelector(".component").classList.add("changed");
