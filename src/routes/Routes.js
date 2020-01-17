@@ -9,10 +9,10 @@ const Routes = () => {
             <Link to="/context" style={{position:"absolute",top:"2vh",left:"2vh",fontSize:"0.9em","zIndex":"1"}}>Context Us</Link>
             <Navgation/>
             <Switch>
+                <Route exact path="/" component={Home}/> 
                 <Route path="/context" component={Context}/>
                 <Route path="/portfolio" component={Portfolio}/>
                 <Route path="/profile" component={Profile}/>
-                <Route path="/" component={Home}/> 
                 <Redirect to="/"/>
             </Switch>
         </Router>
