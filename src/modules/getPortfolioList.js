@@ -2,8 +2,7 @@ import { storage, database } from '../firebase/init';
 import * as actions from '../actions';
 
 export const getPortfolioList = (dispatch) => {
-    console.log("start");
-    database.ref("list").on("value", async (snapshot) => {
+    database.ref("list").orderByChild("year").on("value", async (snapshot) => {
         const getList = snapshot.val();
 
         const promiseList = getList ? Object.keys(getList).map(async (id) => {
@@ -31,6 +30,8 @@ export const getPortfolioList = (dispatch) => {
                     console.error(err);
                 })
             }
+
+            portfolioList.reverse();
 
         }
 

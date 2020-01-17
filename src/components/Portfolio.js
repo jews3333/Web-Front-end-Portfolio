@@ -43,4 +43,4 @@ const Portfolio = ({ list, loaded }) => {
     )
 }
 
-export default Portfolio;
+export default WithLoad(Portfolio);

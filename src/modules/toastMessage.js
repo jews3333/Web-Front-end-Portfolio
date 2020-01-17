@@ -1,6 +1,7 @@
   
 export const toast = (message) => {
-    if(document.querySelectorAll(".toast").length === 0){
+
+    const createToast = () => {
         const toast = document.createElement("div");
         toast.className = "toast";
 
@@ -22,20 +23,32 @@ export const toast = (message) => {
                 span.style.opacity = 1;
                 span.style.transform = "translateY(0)";
 
-                if(i == message.length-1){
-                    setTimeout(() => {
-                        for(let j=0; j<message.length; j++){
-                            setTimeout(() => {
-                                document.querySelectorAll(".toast > span")[j].style.opacity = 0;
-                                document.querySelectorAll(".toast > span")[j].style.transform = "translateY(-10px)";
-                            }, (50 * j));
-                        }
-                        setTimeout(() => {
-                            toast.remove();
-                        }, (50 * message.length-1));
-                    }, 2000)
-                }
+                clearToast(i, toast);
+                
             }, (50 * i));
         }
+
+        const clearToast = (i, toast) => {
+
+            if(i == message.length-1){
+                setTimeout(() => {
+                    for(let j=0; j<message.length; j++){
+                        setTimeout(() => {
+                            toast.childNodes[j].style.opacity = 0;
+                            toast.childNodes[j].style.transform = "translateY(-10px)";
+                        }, (50 * j));
+                    }
+                    setTimeout(() => {
+                        toast.remove();
+                    }, (50 * message.length-1));
+                }, 2000)
+            }
+        }
+    }
+
+
+
+    if(document.querySelectorAll(".toast").length === 0){
+        createToast();
     }
 }

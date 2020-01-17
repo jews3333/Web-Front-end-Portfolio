@@ -1,0 +1,46 @@
+#context {
+    max-width:600px; margin:0 auto;
+
+    input, textarea {
+        width:100%;
+        vertical-align: top;
+        background:none;
+        border:1px solid #fff;
+        padding:15px;
+        color:#fff;
+        font-size:1.2em;
+        font-family: inherit;
+        margin-bottom: 15px;
+        transition: all 0.25s ease-in-out;
+
+        &::placeholder {
+            color:#fff;
+        }
+
+        &:focus, &:hover {
+            outline: none;
+            box-shadow: 0 0 10px rgba($color: #fff, $alpha: 0.6);
+        }
+    }
+
+    textarea {
+        height:300px;
+        resize: none;
+    }
+
+    button {
+        width:100%;
+        padding:15px;
+        text-align: center;
+        color:inherit;
+        border:1px solid #fff;
+        font-size:1.2em;
+        transition: all 0.25s ease-in-out;
+        background: rgba($color: #fff, $alpha: 0.1);
+
+        &:focus, &:hover {
+            outline: none;
+            box-shadow: 0 0 10px rgba($color: #fff, $alpha: 0.6);
+        }
+    }
+}
