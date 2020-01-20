@@ -1,6 +1,7 @@
 import * as types from '../actions/ActionTypes';
 import { auth, provider } from '../firebase/init';
 import { handleActions } from 'redux-actions';
+import { toast } from '../modules/toastMessage';
 
 const initialState = {
     admin: false,
@@ -11,7 +12,7 @@ const initialState = {
 const login = handleActions({
     [types.AUTH_STATE]: (state, action) => {
         return {
-            admin: action.payload.uid === 'Sml80BIu65YmBUnFm16nIAAUg602' ? true : false,
+            admin: action.payload ? action.payload.uid === 'Sml80BIu65YmBUnFm16nIAAUg602' ? true : false : false,
             logged: action.payload ? true : false,
             user: action.payload //payload : userData
         }
@@ -24,7 +25,8 @@ const login = handleActions({
                 user: result.user
             }
         }).catch((err) => {
-            console.error(err+" : 로그인에 실패하였습니다!");
+            console.error(err);
+            toast("로그인에 실패하였습니다!");
             return state;
         });
     },
