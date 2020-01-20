@@ -45,3 +45,19 @@
         }
     }
 }
+
+.link_context {
+    position:absolute;
+    top:2vh;
+    left:2vh;
+    font-size:0.9em;
+    z-index:1;
+    transition: all 0.5s ease-in-out;
+
+    &.active {
+        left:50%;
+        transform: translateX(-50%);
+        font-size:2em;
+        text-shadow: 0 0 10px rgba($color: #fff, $alpha: 0.6);
+    }
+}

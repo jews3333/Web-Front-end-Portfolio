@@ -33,7 +33,7 @@ const WithLoad = (LoadComponent) => (
 
             render() {
                 return (
-                    <LoadComponent loaded={this.state.loaded} user={this.props.user} list={this.props.list} logged={this.props.logged} />
+                    <LoadComponent loaded={this.state.loaded} user={this.props.user} list={this.props.list} logged={this.props.logged} admin={this.props.admin} />
                 )
             }
 
@@ -42,6 +42,7 @@ const WithLoad = (LoadComponent) => (
 )
 
 const mapStateToProps = (state) => ({
+    admin: state.loginData.admin,
     logged: state.loginData.logged,
     user: state.loginData.user,
     list: state.portfolioData.list

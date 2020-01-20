@@ -1,12 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect, NavLink } from 'react-router-dom';
 import { Home, Profile, Portfolio, Context, ContextList } from './index';
 import Navgation from '../components/Navgation'
 
 const Routes = () => {
     return (
         <Router>
-            <Link to="/context" style={{position:"absolute",top:"2vh",left:"2vh",fontSize:"0.9em","zIndex":"1"}}>Context Us</Link>
+            <NavLink to="/context" className='link_context' activeClassName='active'>Context Us</NavLink>
             <Navgation/>
             <Switch>
                 <Route exact path="/" component={Home}/> 

@@ -3,7 +3,7 @@ import WithLoad from '../HOC/WithLoad';
 import '../styles/Context.scss';
 import { database } from '../firebase/init';
 import { toast } from '../modules/toastMessage';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 class Context extends Component {
 
@@ -32,6 +32,12 @@ class Context extends Component {
     }
 
     onSendHandler = () => {
+
+        if(!this.state.title) {
+            toast("제목이만이라도...");
+            return false;
+        } 
+
         let date = new Date();
         let yy = date.getFullYear();
         let mm = date.getMonth() + 1;
@@ -59,7 +65,7 @@ class Context extends Component {
 
     render(){
 
-        const { loaded, user } = this.props;
+        const { loaded, user, admin } = this.props;
 
         return (
             <div className="component" id="context" data-loaded={loaded}>
@@ -75,6 +81,7 @@ class Context extends Component {
                 <div>
                     <button onClick={user ? this.onSendHandler : () => toast("로그인이 필요합니다!")}>Send</button>
                 </div>
+                {admin ? <div><Link to="/context/list">List</Link></div> : null}
             </div>
         );
     }
