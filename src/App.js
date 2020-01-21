@@ -4,8 +4,7 @@ import Routes from './routes/Routes';
 import Star from './components/Star';
 import LoginContainer from './containers/LoginContainer';
 import { connect } from 'react-redux';
-import { getAuthState, getPortfolioList, MotionLoading } from './modules';
-import { toast } from './modules/toastMessage';
+import { getAuthState, getPortfolioList, MotionLoading, toastMessage } from './modules';
 
 class App extends Component {
 
@@ -16,7 +15,7 @@ class App extends Component {
   }
 
   UNSAFE_componentWillReceiveProps(){
-    if(this.props.user) toast(`반갑습니다! ${this.props.user.displayName}님!`);
+    if(this.props.user) toastMessage(`반갑습니다! ${this.props.user.displayName}님!`);
   }
 
   render() {

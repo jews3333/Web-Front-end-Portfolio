@@ -1,5 +1,5 @@
   
-export const toast = (message) => {
+export const toastMessage = (message) => {
 
     const createToast = () => {
         const toast = document.createElement("div");
@@ -52,3 +52,5 @@ export const toast = (message) => {
         createToast();
     }
 }
+
+export default toastMessage;

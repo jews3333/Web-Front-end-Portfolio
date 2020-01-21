@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import WithLoad from '../HOC/WithLoad';
 import { database } from '../firebase/init';
 import '../styles/ContextList.scss';
-import { toast } from '../modules/toastMessage';
+import { toastMessage } from '../modules';
 
 class ContextList extends Component {
 
@@ -48,7 +48,7 @@ class ContextList extends Component {
                             <div className="body">{contextList[id].message}</div>
                         </div>
                     )) : null
-                : toast("몰래 들어오셨군요!?")}
+                : toastMessage("몰래 들어오셨군요!?")}
             </div>
         );
     }

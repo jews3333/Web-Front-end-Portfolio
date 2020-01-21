@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import WithLoad from '../HOC/WithLoad';
 import '../styles/Context.scss';
 import { database } from '../firebase/init';
-import { toast } from '../modules/toastMessage';
+import { toastMessage } from '../modules';
 import { withRouter, Link } from 'react-router-dom';
 
 class Context extends Component {
@@ -34,7 +34,7 @@ class Context extends Component {
     onSendHandler = () => {
 
         if(!this.state.title) {
-            toast("제목이만이라도...");
+            toastMessage("제목이만이라도...");
             return false;
         } 
 
@@ -50,14 +50,14 @@ class Context extends Component {
             message: this.state.message,
             date: `${yy}/${mm}/${dd}`
         }).then(() => {
-            toast("메세지 전송 성공!");
+            toastMessage("메세지 전송 성공!");
             document.querySelector(".component").classList.add("changed");
             setTimeout(() => {
                 this.props.history.push("/");
             },500);
         }).catch((err) => {
             console.error(err);
-            toast("메세지 전송 실패ㅠㅠ");
+            toastMessage("메세지 전송 실패ㅠㅠ");
         });
         
         
@@ -79,7 +79,7 @@ class Context extends Component {
                     <textarea id="message" placeholder="Message" onChange={this.onChangeHandler}></textarea>
                 </div>
                 <div>
-                    <button onClick={user ? this.onSendHandler : () => toast("로그인이 필요합니다!")}>Send</button>
+                    <button onClick={user ? this.onSendHandler : () => toastMessage("로그인이 필요합니다!")}>Send</button>
                 </div>
                 {admin ? <div><Link to="/context/list">List</Link></div> : null}
             </div>

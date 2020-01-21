@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import '../styles/Profile.scss';
-import { toast } from '../modules/toastMessage';
+import { toastMessage } from '../modules';
 import WithLoad from '../HOC/WithLoad';
+import Photo from '../images/photo.jpg';
 
 class Profile extends Component {
 
     constructor(props){
         super(props);
         this.state = {
+            information: [
+                "저는 웹 프론트엔드 개발자 <strong>조승현</strong>입니다.",
+                "1993년에 탄생하였으며 부산에 거주하고있습니다.",
+                "디자인을 바탕으로 웹표준 및 웹접근성을 준수한 웹코딩과 동적인 UI·UX를 구현하여",
+                "세련되고 트렌디한 웹 사이트를 개발하는 것입니다."
+            ],
             skills : [ "HTML5","CSS3","Javascript","Jquery","SCSS","React","Git","Photoshop","Illustrator" ],
             license: [
                 "GTQ포토샵2급",
@@ -70,16 +77,16 @@ class Profile extends Component {
         return (
             <section className="component" id="profile" data-loaded={loaded}>
                 <article>
-                    <div className="photo" onMouseEnter={() => toast("안녕하세요? 저에요!")}>
-                        
+                    <div className="photo" onMouseEnter={() => toastMessage("안녕하세요? 저에요!")}>
+                        <img src={Photo}/>
                     </div>
                 </article>
                 <article>
                     <div className="infomation">
-                        <p>저는 웹 프론트엔드 개발자 <strong>조승현</strong>입니다.</p>
-                        <p>1993년에 탄생하였으며 부산에 거주하고있습니다.</p>
-                        <p>디자인을 바탕으로 웹표준 및 웹접근성을 준수한 웹코딩과 동적인 UI·UX를 구현하여</p>
-                        <p>세련되고 트렌디한 웹 사이트를 개발하는 것입니다.</p>
+                        <p>{this.state.information[0]}</p>
+                        <p>{this.state.information[1]}</p>
+                        <p>{this.state.information[2]}</p>
+                        <p>{this.state.information[3]}</p>
                     </div>
                     <div className="license">
                         <h3>보유 자격증</h3>
@@ -90,7 +97,7 @@ class Profile extends Component {
                 </article>
                 <article className="full">
                     <div className="skills">
-                        {this.state.skills.map((item, index) => <span key={index} onMouseEnter={() => toast("저는 "+item+" 가능해요!")}>{item}</span>)}
+                        {this.state.skills.map((item, index) => <span key={index} onMouseEnter={() => toastMessage("저는 "+item+" 가능해요!")}>{item}</span>)}
                     </div>
                 </article>
                 <article className="full">

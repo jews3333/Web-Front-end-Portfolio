@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="utf-8" />
     <!-- <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" /> -->
@@ -25,6 +25,64 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>웹 프론트엔드 포트폴리오</title>
+    <script>
+      window.onload = function(){
+        console.log(navigator.userAgent);
+        if(navigator.userAgent.indexOf("MSIE") !== -1 || navigator.userAgent.indexOf("Trident") !== -1){
+          var font = document.createElement("link");
+          font.rel = "stylesheet";
+          font.type = "text/css";
+          font.href = "https://fonts.googleapis.com/earlyaccess/notosanskr.css";
+
+          document.body.appendChild(font);
+
+          document.body.style.fontFamily = "Noto Sans KR, sans-serif";
+          document.body.style.background = "radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%)";
+          document.body.style.width = "100vw";
+          document.body.style.height = "100vh";
+          document.body.style.overflow = "hidden";
+
+          var div = document.createElement("div");
+          var cloneDiv = div.cloneNode();
+          var textWrap = document.createElement("p");
+          var text = document.createTextNode("Internet Explorer는 더 이상 지원하지 않습니다 ㅠㅠ");
+
+          textWrap.appendChild(text);
+          div.appendChild(textWrap);
+
+          text = document.createTextNode("크롬 브라우저 이용을 부탁드립니다!");
+          div.appendChild(textWrap.cloneNode().appendChild(text));
+
+          var link = document.createElement("a");
+          link.style.fontFamily = "inherit";
+          link.style.color = "#fff";
+          link.style.textDecoration = "none";
+          link.style.display = "inline-block";
+          link.style.border = "1px solid #fff";
+          link.style.padding = "15px 20px";
+          link.style.fontSize = "14px";
+          link.target = "_blank";
+          link.href = "https://www.google.co.kr/chrome/";
+          text = document.createTextNode("크롬 다운로드");
+          link.appendChild(text);
+
+          cloneDiv.style.marginTop = "30px";
+          cloneDiv.appendChild(link);
+          div.appendChild(cloneDiv);
+
+          div.style.position = "absolute";
+          div.style.left = "50%";
+          div.style.top = "50%";
+          div.style.transform = "translate(-50%, -50%)";
+          div.style.color = "#fff";
+          div.style.fontSize = "20px";
+          div.style.fontWeight = "bold";
+          div.style.textAlign = "center";
+
+          document.body.appendChild(div);
+        }
+      }
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

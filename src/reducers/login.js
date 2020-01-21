@@ -1,7 +1,7 @@
 import * as types from '../actions/ActionTypes';
 import { auth, provider } from '../firebase/init';
 import { handleActions } from 'redux-actions';
-import { toast } from '../modules/toastMessage';
+import { toastMessage } from '../modules';
 
 const initialState = {
     admin: false,
@@ -26,7 +26,7 @@ const login = handleActions({
             }
         }).catch((err) => {
             console.error(err);
-            toast("로그인에 실패하였습니다!");
+            toastMessage("로그인에 실패하였습니다!");
             return state;
         });
     },
