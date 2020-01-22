@@ -10,7 +10,7 @@ class Profile extends Component {
         super(props);
         this.state = {
             information: [
-                "저는 웹 프론트엔드 개발자 <strong>조승현</strong>입니다.",
+                "저는 웹 프론트엔드 개발자 조승현입니다.",
                 "1993년에 탄생하였으며 부산에 거주하고있습니다.",
                 "디자인을 바탕으로 웹표준 및 웹접근성을 준수한 웹코딩과 동적인 UI·UX를 구현하여",
                 "세련되고 트렌디한 웹 사이트를 개발하는 것입니다."

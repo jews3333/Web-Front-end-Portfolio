@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Rocket from '../images/rocket.svg';
 import '../styles/MotionLoading.scss';
 import WithLoad from '../HOC/WithLoad';
 
-class MotionLoading extends React.Component {
+class MotionLoading extends Component {
     render(){
         const { loaded } = this.props;
 
@@ -11,7 +11,7 @@ class MotionLoading extends React.Component {
             let rocket = document.querySelector('.loading_rocket');
             setTimeout(() => {
                 if(rocket){
-                    rocket.remove();
+                    document.querySelector(".App").removeChild(rocket);
                 };
             }, 1000)
         }

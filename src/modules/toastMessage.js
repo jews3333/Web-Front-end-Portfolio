@@ -13,12 +13,12 @@ export const toastMessage = (message) => {
 
             if(message[i] == " ") str = document.createTextNode("\u00a0");
 
-            span.append(str);
+            span.appendChild(str);
             span.style.opacity = 0;
             span.style.transition = "all 0.2s ease-in-out";
             span.style.display = "inline-block";
             span.style.transform = "translateY(-10px)";
-            toast.append(span);
+            toast.appendChild(span);
             setTimeout(() => {
                 span.style.opacity = 1;
                 span.style.transform = "translateY(0)";
@@ -39,7 +39,7 @@ export const toastMessage = (message) => {
                         }, (50 * j));
                     }
                     setTimeout(() => {
-                        toast.remove();
+                        document.body.removeChild(toast);
                     }, (50 * message.length-1));
                 }, 2000)
             }
