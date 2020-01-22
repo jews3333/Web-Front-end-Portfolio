@@ -7,14 +7,14 @@ const viewHandler = (image) => {
     view.classList.add("portfolioView");
     img.src = image;
     img.setAttribute("title","더블클릭해서 나가기");
-    view.append(img);
+    view.appendChild(img);
     view.addEventListener("dblclick", () => {
         view.classList.remove("active");
         setTimeout(() => {
-            view.remove();
+            document.querySelector(".App").removeChild(view);
         },250);
     });
-    document.querySelector(".App").append(view);
+    document.querySelector(".App").appendChild(view);
     setTimeout(() => {
         view.classList.add("active");
     },100);
