@@ -1,68 +1,14 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React기반의 새로운 웹 포트폴리오 사이트입니다.
+<https://webpofol.com/>
 
-## Available Scripts
+## 웹 프론트엔드 포트폴리오
+> 2020년 새롭게 탄생한 포트폴리오 사이트를 소개합니다.
+> 개발하면서 많은 공부가 되어 참 즐겁게 개발했습니다.
+> 뿌듯한 마음으로 공개합니다!
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### 사용된 기술
+- CreateReactApp(CRA) : 초기 React프로젝트 생성을 위함 (webpack을 직접 작성하지 않아 개발 셋팅이 빠름)
+- redux, react-redux : 데이터 상태 관리를 위함 (로그인 유저 데이터, 포트폴리오 리스트 등 초기에 불러와서 관리하기 위함)
+- react-router-dom : 비동기적 페이지 변환을 위함 (componet만 변경해주는 방식으로 화면 깜빡이는 현상이 없고 속도가 빠름, 트렌디한 웹사이트 제작에 많은 도움을 줌)
+- node-sass : 다들 아시다시피 css보다 훨신 성능이 좋은 scss를 사용하기 위함(css내의 함수와 자식노드의 접근이 용이함)
+- firebase : 파이어베이스 로그인, 데이터베이스, 스토리지, 호스팅 등을 위함
