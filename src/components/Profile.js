@@ -57,15 +57,27 @@ class Profile extends Component {
                 {
                     year: "2018 ~ 2019",
                     str: [
-                        "부산시청 시장실 홈페이지 개설",
-                        "OK1번가 홈페이지 개설",
-                        "OK1번가 시즌2 홈페이지 개설",
-                        "시민참여예산 홈페이지 개설",
-                        "부산아이다가치키움 사업 홈페이지 개설",
+                        "부산시청 시장실 홈페이지 구축",
+                        "OK1번가 홈페이지 구축",
+                        "OK1번가 시즌2 홈페이지 구축",
+                        "시민참여예산 홈페이지 구축",
+                        "부산아이다가치키움 사업 홈페이지 구축",
                         "2030엑스포 홈페이지 개편",
-                        "2019부산광역시 홈페이지 개편",
-                        "상수도사업본부 홈페이지 개편",
-                        "2020도쿄올림픽 전지훈련 홈페이지 개설"
+                        "2019 부산광역시 홈페이지 개편",
+                        "2019 상수도사업본부 홈페이지 개편",
+                        "2019 부산광역시 홈페이지 웹접근성, 굿콘텐츠 인증"
+                    ]
+                },
+                {
+                    year: "2020",
+                    str: [
+                        "2020 도쿄올림픽 전지훈련 홈페이지 구축",
+                        "2020 부산광역시 건축설계공모 홈페이지 구축",
+                        "2020 다이내믹 부산 홈페이지 구축",
+                        "2020 부산광역시 홈페이지 웹접근성, 굿콘텐츠 인증",
+                        "부산광역시 COVID19 홈페이지 구축",
+                        "부산광역시 마스크판매처 홈페이지 구축",
+                        "부산광역시 소상공인 민생지원금 신청 홈페이지 구축"
                     ]
                 }
             ]
@@ -77,8 +89,8 @@ class Profile extends Component {
         return (
             <section className="component" id="profile" data-loaded={loaded}>
                 <article>
-                    <div className="photo" onMouseEnter={() => toastMessage("안녕하세요? 저에요!")}>
-                        <img src={Photo}/>
+                    <div className="photo" onMouseEnter={() => toastMessage("안녕하세요? 저에요!")} style={{"background":"rgba(255,255,255,.5)"}}>
+                        {/* <img src={Photo}/> */}
                     </div>
                 </article>
                 <article>
